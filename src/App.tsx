@@ -7,6 +7,7 @@ import {
   TableRow,
 } from "@/components/ui/table"
 import Logo from "./components/logo"
+import MLHBadge from "./components/MLHBadge"
 
 const tiers = ['Bronze', 'Silver', 'Gold', 'Platinum', 'Diamond', 'Virtual']
 const prices = ['$2,500', '$6,000', '$8,000', '$12,000', '$25,000', '$3,000']
@@ -48,6 +49,7 @@ function App() {
     <div className="min-h-screen bg-[#050404] text-white">
       <div className="max-w-5xl mx-auto px-8 py-12">
 
+        <MLHBadge />
         <Logo />
 
         {/* Hero */}
