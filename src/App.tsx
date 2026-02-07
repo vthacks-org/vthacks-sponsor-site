@@ -139,7 +139,6 @@ function App() {
             <a href="mailto:sponsorship@vthacks.com" className="hover:text-white">sponsorship@vthacks.com</a>
             <a href="https://instagram.com/vthacks" className="hover:text-white">@vthacks</a>
           </div>
-          <p className="text-xs text-zinc-600 mt-8">template inspired by Bitcamp</p>
         </div>
       </div>
     </div>
