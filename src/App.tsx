@@ -99,7 +99,7 @@ function App() {
               {/* General */}
               <SectionRow title="General" />
               <FeatureRow name="Send Representatives" desc="Show up in person at VTHacks!" values={['✓', '✓', '✓', '✓', '✓', '—']} />
-              <FeatureRow name="Hacker Contact Info" desc="Receive contact information of hackers post-event." values={['✓', '✓', '✓', '✓', '✓', '✓']} />
+              <FeatureRow name="Hacker Contact Info" desc="Receive contact information of hackers." values={['✓', '✓', '✓', '✓', '✓', '✓']} />
               <FeatureRow name="Sponsor Table" desc="A table to showcase recruiting materials." values={['S', 'S', 'L', 'L', 'L', '—']} />
               <FeatureRow name="Sponsor Snack Lounge" desc="Access to exclusive sponsor-only snack lounge." values={['✓', '✓', '✓', '✓', '✓', '—']} />
               <FeatureRow name="Resume Book" desc="Access to database of registrants' resumes." values={['—', '✓', '✓', '✓', '✓', '✓']} />
