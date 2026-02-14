@@ -87,7 +87,7 @@ function App() {
               Make VTHacks yours.
             </h2>
             <p className="text-zinc-500 text-lg md:text-xl mt-4 max-w-2xl">
-              Choose from five tiers designed to match your goals — from brand awareness to deep hacker engagement.
+              Choose from five tiers designed to match your goals!
             </p>
           </div>
 
