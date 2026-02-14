@@ -1,6 +1,7 @@
 import { BentoCard, BentoGrid } from "./ui/bento-grid";
 import LogoLoop from "./ui/LogoLoop";
 import DeckMap from "./DeckMap";
+import WordRotate from "./ui/WordRotate";
 import databricksLogo from "@/assets/logos/databricks.svg";
 import mlhLogo from "@/assets/logos/mlh.svg";
 import accentureLogo from "@/assets/logos/accenture.svg";
@@ -31,9 +32,7 @@ const StatGrid = () => (
         </div>
       ))}
     </div>
-    <div className="text-[11px] uppercase tracking-[0.2em] text-zinc-600 font-mono">
-      [ Always Profound ]
-    </div>
+
   </div>
 );
 
@@ -64,7 +63,7 @@ const features = [
           />
         </div>
         <div className="text-[11px] uppercase tracking-[0.2em] text-zinc-600 font-mono">
-          [ Partners ]
+          Partners
         </div>
       </div>
     ),
@@ -84,10 +83,20 @@ const features = [
         <div className="flex-1 relative">
           <DeckMap height="100%" width="100%" />
           {/* Bold overlay text */}
-          <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
-            <span className="text-2xl md:text-3xl font-bold text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]">
-              3 hrs from D.C.
-            </span>
+          <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none text-center">
+            <WordRotate
+              duration={2000}
+              className="text-2xl md:text-3xl font-bold text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]"
+              words={[
+                "3 hrs from D.C.",
+                "3 hrs from Richmond",
+                "3 hrs from Charlotte",
+                "3 hrs from Raleigh",
+                "4 hrs from Maryland",
+                "4 hrs from NYC",
+                "4 hrs from Atlanta",
+              ]}
+            />
           </div>
           <a
             href="https://maps.app.goo.gl/U1TAJKN1SAbD8LhG7"
@@ -110,13 +119,11 @@ const features = [
       <div className="h-full w-full flex items-center justify-center text-center px-8">
         <div>
           <div className="text-2xl font-bold text-white mb-3 leading-tight">
-            5 tiers to
+            5 Tiers to
             <br />
             match your goals
           </div>
-          <div className="text-[11px] uppercase tracking-[0.2em] text-zinc-600 font-mono">
-            [ Scroll Down ]
-          </div>
+
         </div>
       </div>
     ),

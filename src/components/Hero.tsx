@@ -58,7 +58,7 @@ export default function Hero() {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+              transition={{ duration: 0.3, delay: 0.3, ease: "easeIn" }}
             >
               <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold text-white leading-[0.9]">
                 inspire

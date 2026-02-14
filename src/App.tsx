@@ -110,22 +110,20 @@ function App() {
 
           {/* Section label */}
           <div className="px-6 md:px-12 lg:px-16 pt-8 pb-4">
-            <span className="text-[11px] uppercase tracking-[0.25em] text-zinc-600 font-mono">
-              [ Get in Touch ]
-            </span>
+
           </div>
 
           {/* CTA content */}
           <div className="px-6 md:px-12 lg:px-16 pb-24">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 text-center">
-              Let's build something amazing.
+              We Are Bespoke
             </h2>
             <p className="text-zinc-500 text-lg md:text-xl mb-12 max-w-xl mx-auto text-center">
-              Reach out and we'll craft the perfect partnership for your brand.
+              Reach out and we'll craft the perfect partnership.
             </p>
 
             {/* Contact links styled as grid cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
               <a
                 href="https://vthacks.com"
                 className="group relative p-6 border border-dashed border-zinc-500/30 rounded-sm hover:border-zinc-600 transition-all duration-300 overflow-hidden text-left"
