@@ -1,25 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 @font-face {
-  font-family: 'CustomFont';
-  src: url('./assets/font.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
+    font-family: "CustomFont";
+    src: url("./assets/font.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
 }
 
 @import "tailwindcss";
 
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
 html,
 body,
 #root {
-  margin: 0;
-  padding: 0;
-  background-color: #050404;
-  font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #050404;
+    font-family: "Poppins", sans-serif;
 }
 
 * {
-  font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 h2,
@@ -32,21 +36,51 @@ h3 *,
 h4 *,
 h5 *,
 h6 * {
-  font-family: 'CustomFont', sans-serif;
-  font-stretch: 300%;
-
+    font-family: "CustomFont", sans-serif;
+    font-stretch: 300%;
 }
 
 @keyframes shimmer {
-  0% {
-    transform: translateX(-100%);
-  }
+    0% {
+        transform: translateX(-100%);
+    }
 
-  100% {
-    transform: translateX(100%);
-  }
+    100% {
+        transform: translateX(100%);
+    }
 }
 
 .animate-shimmer {
-  animation: shimmer 3s infinite;
+    animation: shimmer 3s infinite;
+}
+
+@theme inline {
+    --animate-marquee: marquee var(--duration) infinite linear;
+    --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+    @keyframes marquee {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(calc(-100% - var(--gap)));
+        }
+    }
+    @keyframes marquee-vertical {
+        from {
+            transform: translateY(0);
+        }
+        to {
+            transform: translateY(calc(-100% - var(--gap)));
+        }
+    }
+}
+
+@layer base {
+    * {
+        /* removed invalid tailwind utilities */
+    }
+    body {
+        background-color: #050404;
+        color: #ffffff;
+    }
 }
