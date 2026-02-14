@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&display=swap");
 
 @font-face {
     font-family: "CustomFont";
@@ -20,10 +21,15 @@ body,
     padding: 0;
     background-color: #050404;
     font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth;
 }
 
 * {
     font-family: "Poppins", sans-serif;
+}
+
+.font-mono {
+    font-family: "JetBrains Mono", monospace !important;
 }
 
 h2,
@@ -57,18 +63,22 @@ h6 * {
 @theme inline {
     --animate-marquee: marquee var(--duration) infinite linear;
     --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+
     @keyframes marquee {
         from {
             transform: translateX(0);
         }
+
         to {
             transform: translateX(calc(-100% - var(--gap)));
         }
     }
+
     @keyframes marquee-vertical {
         from {
             transform: translateY(0);
         }
+
         to {
             transform: translateY(calc(-100% - var(--gap)));
         }
@@ -79,6 +89,7 @@ h6 * {
     * {
         /* removed invalid tailwind utilities */
     }
+
     body {
         background-color: #050404;
         color: #ffffff;

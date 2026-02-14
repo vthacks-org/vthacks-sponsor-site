@@ -37,7 +37,20 @@ export default function DeckMap({
 
     mapRef.current = map;
 
+    // Continuous circular rotation
+    let animationId: number;
+    const rotateCamera = () => {
+      const currentBearing = map.getBearing();
+      map.rotateTo(currentBearing + 0.1, { duration: 0 });
+      animationId = requestAnimationFrame(rotateCamera);
+    };
+
+    map.on("load", () => {
+      rotateCamera();
+    });
+
     return () => {
+      cancelAnimationFrame(animationId);
       map.remove();
       mapRef.current = null;
     };

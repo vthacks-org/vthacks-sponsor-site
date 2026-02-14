@@ -12,15 +12,15 @@ interface BentoCardProps extends ComponentPropsWithoutRef<"div"> {
   background: ReactNode;
   Icon?: React.ElementType;
   description: string;
-  href: string;
-  cta: string;
+  href?: string;
+  cta?: string;
 }
 
 const BentoGrid = ({ children, className, ...props }: BentoGridProps) => {
   return (
     <div
       className={cn(
-        "grid w-full auto-rows-[22rem] grid-cols-3 gap-2",
+        "grid w-full auto-rows-[22rem] grid-cols-3 gap-[1px]",
         className,
       )}
       {...props}
@@ -39,14 +39,16 @@ const BentoCard = ({
   <div
     key={name}
     className={cn(
-      "group relative col-span-3 flex flex-col overflow-hidden rounded-sm",
-      "bg-[#0a0a0a] border border-white/10 [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]",
-      "dark:bg-[#0b0b0b] dark:border dark:border-white/15 transform-gpu dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]",
+      "group relative col-span-3 flex flex-col overflow-hidden rounded-none",
+      "bg-[#0a0a0a] border border-dashed border-zinc-500/30",
+      "transform-gpu",
       className,
     )}
     {...props}
   >
-    <div className="h-full w-full flex-1">{background}</div>
+    {/* Dotted mesh background texture */}
+    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[length:20px_20px] pointer-events-none" />
+    <div className="relative h-full w-full flex-1">{background}</div>
   </div>
 );
 

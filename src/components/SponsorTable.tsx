@@ -15,10 +15,10 @@ const prices: Record<Tier, string> = {
 
 const tierStyles: Record<Tier, { header: string; headerText: string; cell: string; badge: string }> = {
     Bronze: {
-        header: "bg-gradient-to-b from-amber-900/20 to-transparent",
-        headerText: "text-amber-400",
-        cell: "bg-amber-900/[0.04]",
-        badge: "bg-amber-900/30 text-amber-400 border-amber-800/40",
+        header: "bg-gradient-to-b from-stone-700/15 to-transparent",
+        headerText: "text-stone-500",
+        cell: "bg-stone-800/[0.03]",
+        badge: "bg-stone-800/25 text-stone-500 border-stone-700/30",
     },
     Silver: {
         header: "bg-gradient-to-b from-zinc-500/15 to-transparent",
@@ -144,13 +144,13 @@ function DesktopTable() {
         <div className="hidden lg:block">
             <table className="w-full table-fixed border-collapse">
                 {/* Sticky header */}
-                <thead className="sticky top-0 z-20">
+                <thead className="sticky top-0 z-20 backdrop-blur-sm">
                     <tr>
-                        <th className="w-[280px] text-left py-5 px-4 bg-[#050404]">
+                        <th className="w-[280px] text-left py-5 px-4 bg-[#050404]/30">
                             <span className="text-zinc-500 text-sm font-normal uppercase tracking-wider">Tiers</span>
                         </th>
                         {tiers.map((tier) => (
-                            <th key={tier} className={`text-center py-5 px-2 bg-[#050404] ${tierStyles[tier].header}`}>
+                            <th key={tier} className={`text-center py-5 px-2 bg-[#050404]/80 ${tierStyles[tier].header}`}>
                                 <div className={`font-semibold text-base ${tierStyles[tier].headerText}`}>{tier}</div>
                                 <div className="text-zinc-500 text-sm font-normal mt-0.5">{prices[tier]}</div>
                             </th>
@@ -158,7 +158,7 @@ function DesktopTable() {
                     </tr>
                     {/* Subtle separator line */}
                     <tr>
-                        <td colSpan={7} className="h-px bg-zinc-800 p-0" />
+                        <td colSpan={7} className="h-px bg-zinc-500/20 p-0" />
                     </tr>
                 </thead>
 
@@ -175,7 +175,7 @@ function DesktopTable() {
                             {section.features.map((feature) => (
                                 <tr
                                     key={feature.name}
-                                    className="border-b border-zinc-800/60 transition-colors duration-200 hover:bg-white/[0.02]"
+                                    className="border-b border-white/10 transition-colors duration-200 hover:bg-white/[0.02]"
                                 >
                                     <td className="py-5 px-4">
                                         <div className="font-medium text-white text-[15px]">{feature.name}</div>
@@ -200,13 +200,13 @@ function DesktopTable() {
 
 /* ── Mobile table ── */
 function MobileTable() {
-    const [selectedTier, setSelectedTier] = useState<Tier>("Gold");
+    const [selectedTier, setSelectedTier] = useState<Tier>("Bronze");
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
     return (
         <div className="lg:hidden">
             {/* Sticky tier selector */}
-            <div className="sticky top-0 z-20 bg-[#050404]/95 backdrop-blur-md border-b border-zinc-800 pb-3 pt-3">
+            <div className="sticky top-0 z-20 bg-[#050404]/30 backdrop-blur-sm border-b border-zinc-500/30 px-4 sm:px-6 pb-3 pt-3">
                 <div className="flex items-center justify-between">
                     {/* Dropdown */}
                     <div className="relative">
@@ -262,7 +262,7 @@ function MobileTable() {
             )}
 
             {/* Feature list */}
-            <div>
+            <div className="px-4 sm:px-6">
                 {sections.map((section) => (
                     <div key={section.title}>
                         {/* Section header */}
@@ -274,7 +274,7 @@ function MobileTable() {
                         {section.features.map((feature) => (
                             <div
                                 key={feature.name}
-                                className="flex items-start justify-between py-5 border-b border-zinc-800/60 gap-4"
+                                className="flex items-start justify-between py-5 border-b border-white/10 gap-4"
                             >
                                 <div className="flex-1 min-w-0">
                                     <div className="font-medium text-white text-[15px]">{feature.name}</div>
@@ -297,9 +297,13 @@ function MobileTable() {
 /* ── Main export ── */
 export default function SponsorTable() {
     return (
-        <div className="mb-16">
-            <DesktopTable />
-            <MobileTable />
+        <div className="relative border border-dashed border-zinc-500/30 rounded-none">
+            {/* Dotted mesh background */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[length:24px_24px] pointer-events-none" />
+            <div className="relative">
+                <DesktopTable />
+                <MobileTable />
+            </div>
         </div>
     );
 }
