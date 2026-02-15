@@ -116,10 +116,10 @@ function App() {
           {/* CTA content */}
           <div className="px-6 md:px-12 lg:px-16 pb-24">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 text-center">
-              We Are Bespoke
+              Reach Out!
             </h2>
             <p className="text-zinc-500 text-lg md:text-xl mb-12 max-w-xl mx-auto text-center">
-              Reach out and we'll craft the perfect partnership.
+              Reach out and we'll craft the perfect bespoke partnership.
             </p>
 
             {/* Contact links styled as grid cards */}
