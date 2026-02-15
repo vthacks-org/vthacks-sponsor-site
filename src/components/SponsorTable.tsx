@@ -212,11 +212,11 @@ function MobileTable() {
                     <div className="relative">
                         <button
                             onClick={() => setDropdownOpen(!dropdownOpen)}
-                            className="flex items-center gap-2 text-white font-semibold text-lg px-1 py-1 rounded-lg transition-colors hover:bg-white/5"
+                            className="flex  bg-white/80  pl-3 pr-2 items-center gap-2 text-black font-semibold text-lg px-1 py-1 rounded-3xl transition-colors hover:bg-white/5"
                         >
                             {selectedTier}
                             <svg
-                                className={`w-4 h-4 text-zinc-400 transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`}
+                                className={`w-4 h-4 text-black transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`}
                                 fill="none"
                                 viewBox="0 0 24 24"
                                 stroke="currentColor"
