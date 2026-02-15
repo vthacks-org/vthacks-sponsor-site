@@ -16,11 +16,13 @@ export default function Hero() {
         {/* Logo — aligned to the same grid container */}
         <div className="absolute top-0 left-0 right-0 z-50">
           <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-12">
-            <img
-              src={logo}
-              alt="VTHacks Logo"
-              className="w-24 md:w-36 lg:w-38 invert"
-            />
+	    <a href="https://vthacks.com">
+              <img
+                src={logo}
+                alt="VTHacks Logo"
+                className="w-24 md:w-36 lg:w-38 invert"
+              />
+	    </a>
           </div>
         </div>
 
