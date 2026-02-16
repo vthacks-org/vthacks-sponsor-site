@@ -80,12 +80,12 @@ export default function Hero() {
           </motion.div>
 
           {/* Logo */}
-          <div className="absolute top-0 left-0 right-0 z-50 pointer-events-auto pt-8 md:pt-12">
+          <div className="absolute top-0 left-0 right-0 z-50 pointer-events-auto pt-8 md:pt-12 px-6 md:px-12 lg:px-16">
             <a href="https://vthacks.com">
               <img
                 src={logo}
                 alt="VTHacks Logo"
-                className="pl-16 w-24 md:w-36 lg:w-38 invert"
+                className="w-24 md:w-36 lg:w-38 invert"
               />
             </a>
           </div>
@@ -97,10 +97,10 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: 0.3, ease: "easeIn" }}
             >
-              <motion.h1 className="pl-16 text-6xl md:text-8xl lg:text-9xl font-bold text-white leading-[0.9]">
+              <motion.h1 className="px-6 md:px-12 lg:px-16 text-6xl md:text-8xl lg:text-9xl font-bold text-white leading-[0.9]">
                 inspire
               </motion.h1>
-              <motion.h1 className="pl-16 text-6xl pt-6 md:text-7xl lg:text-9xl font-bold text-white leading-[0.9]">
+              <motion.h1 className="px-6 md:px-12 lg:px-16 text-6xl pt-6 md:text-7xl lg:text-9xl font-bold text-white leading-[0.9]">
                 brilliance
               </motion.h1>
             </motion.div>
