@@ -1,6 +1,6 @@
 
 import accentureLogo from "@/assets/logos/accenture.svg";
-// import americansystemsLogo from "@/assets/logos/americansystems.svg"; // TODO: Add this back in
+import americansystemsLogo from "@/assets/logos/americansystems.svg";
 import balsamiqLogo from "@/assets/logos/balsamiq.svg";
 import bloombergLogo from "@/assets/logos/bloomberg.svg";
 import capitaloneLogo from "@/assets/logos/capitalone.svg";
@@ -20,7 +20,7 @@ import warpLogo from "@/assets/logos/warp.svg";
 
 export const imageLogos = [
   { src: accentureLogo, alt: "Accenture", href: "https://www.accenture.com/" },
-  // { src: americansystemsLogo, alt: "American Systems", href: "https://www.americansystems.com/" }, // TODO: Add this back in
+  { src: americansystemsLogo, alt: "American Systems", href: "https://www.americansystems.com/" },
   { src: balsamiqLogo, alt: "Balsamiq", href: "https://www.balsamiq.com/" },
   { src: bloombergLogo, alt: "Bloomberg", href: "https://www.bloomberg.com/" },
   { src: capitaloneLogo, alt: "Capital One", href: "https://www.capitalone.com/" },
