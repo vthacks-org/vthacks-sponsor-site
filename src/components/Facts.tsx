@@ -2,13 +2,8 @@ import { BentoCard, BentoGrid } from "./ui/bento-grid";
 import LogoLoop from "./ui/LogoLoop";
 import DeckMap from "./DeckMap";
 import WordRotate from "./ui/WordRotate";
-import databricksLogo from "@/assets/logos/databricks.svg";
-import mlhLogo from "@/assets/logos/mlh.svg";
-import accentureLogo from "@/assets/logos/accenture.svg";
-import metaLogo from "@/assets/logos/meta.svg";
-import bloombergLogo from "@/assets/logos/bloomberg.svg";
-import warpLogo from "@/assets/logos/warp.svg";
 import { MapPin } from "lucide-react";
+import { imageLogos } from "@/data/imageLogos";
 
 const stats = [
   { value: "850+", label: "Attendees" },
@@ -45,14 +40,7 @@ const features = [
       <div className="h-full w-full flex flex-col items-center justify-center p-6 gap-5">
         <div className="flex-1 flex items-center justify-center w-full">
           <LogoLoop
-            logos={[
-              { src: databricksLogo, alt: "Databricks" },
-              { src: mlhLogo, alt: "MLH" },
-              { src: accentureLogo, alt: "Accenture" },
-              { src: metaLogo, alt: "Meta" },
-              { src: bloombergLogo, alt: "Bloomberg" },
-              { src: warpLogo, alt: "Warp" },
-            ]}
+            logos={imageLogos}
             speed={80}
             direction="left"
             logoHeight={32}
