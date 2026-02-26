@@ -9,7 +9,7 @@ const prices: Record<Tier, string> = {
     Silver: "$6,000",
     Gold: "$8,000",
     Platinum: "$12,000",
-    Diamond: "$25,000",
+    Diamond: "$16,000",
     Virtual: "$3,000",
 };
 
