@@ -1,12 +1,12 @@
 import { Fragment, useState } from "react";
 
 /* ── Data ── */
-const tiers = ["$500", "$1,000", "Bronze", "Silver", "Gold", "Platinum", "Diamond"] as const;
+const tiers = ["Starter", "Partner", "Bronze", "Silver", "Gold", "Platinum", "Diamond"] as const;
 type Tier = (typeof tiers)[number];
 
 const prices: Record<Tier, string> = {
-    "$500": "$500",
-    "$1,000": "$1,000",
+    Starter: "$500",
+    Partner: "$1,000",
     Bronze: "$2,500",
     Silver: "$6,000",
     Gold: "$8,000",
@@ -15,13 +15,13 @@ const prices: Record<Tier, string> = {
 };
 
 const tierStyles: Record<Tier, { header: string; headerText: string; cell: string; badge: string }> = {
-    "$500": {
+    Starter: {
         header: "bg-gradient-to-b from-amber-700/15 to-transparent",
         headerText: "text-amber-300",
         cell: "bg-amber-700/[0.03]",
         badge: "bg-amber-800/25 text-amber-300 border-amber-700/30",
     },
-    "$1,000": {
+    Partner: {
         header: "bg-gradient-to-b from-emerald-600/15 to-transparent",
         headerText: "text-emerald-300",
         cell: "bg-emerald-600/[0.03]",
@@ -79,8 +79,8 @@ function f(
         name,
         desc,
         values: {
-            "$500": vals[0],
-            "$1,000": vals[1],
+            Starter: vals[0],
+            Partner: vals[1],
             Bronze: vals[2],
             Silver: vals[3],
             Gold: vals[4],
