@@ -1,19 +1,32 @@
 import { Fragment, useState } from "react";
 
 /* ── Data ── */
-const tiers = ["Bronze", "Silver", "Gold", "Platinum", "Diamond", "Virtual"] as const;
+const tiers = ["$500", "$1,000", "Bronze", "Silver", "Gold", "Platinum", "Diamond"] as const;
 type Tier = (typeof tiers)[number];
 
 const prices: Record<Tier, string> = {
+    "$500": "$500",
+    "$1,000": "$1,000",
     Bronze: "$2,500",
     Silver: "$6,000",
     Gold: "$8,000",
     Platinum: "$12,000",
     Diamond: "$16,000",
-    Virtual: "$3,000",
 };
 
 const tierStyles: Record<Tier, { header: string; headerText: string; cell: string; badge: string }> = {
+    "$500": {
+        header: "bg-gradient-to-b from-amber-700/15 to-transparent",
+        headerText: "text-amber-300",
+        cell: "bg-amber-700/[0.03]",
+        badge: "bg-amber-800/25 text-amber-300 border-amber-700/30",
+    },
+    "$1,000": {
+        header: "bg-gradient-to-b from-emerald-600/15 to-transparent",
+        headerText: "text-emerald-300",
+        cell: "bg-emerald-600/[0.03]",
+        badge: "bg-emerald-800/25 text-emerald-300 border-emerald-700/30",
+    },
     Bronze: {
         header: "bg-gradient-to-b from-stone-700/15 to-transparent",
         headerText: "text-stone-500",
@@ -44,12 +57,6 @@ const tierStyles: Record<Tier, { header: string; headerText: string; cell: strin
         cell: "bg-cyan-400/[0.07]",
         badge: "bg-cyan-800/40 text-cyan-300 border-cyan-500/50",
     },
-    Virtual: {
-        header: "bg-gradient-to-b from-zinc-700/10 to-transparent",
-        headerText: "text-zinc-400",
-        cell: "bg-zinc-700/[0.02]",
-        badge: "bg-zinc-800/30 text-zinc-400 border-zinc-700/40",
-    },
 };
 
 interface Feature {
@@ -66,18 +73,19 @@ interface Section {
 function f(
     name: string,
     desc: string,
-    vals: [string, string, string, string, string, string]
+    vals: [string, string, string, string, string, string, string]
 ): Feature {
     return {
         name,
         desc,
         values: {
-            Bronze: vals[0],
-            Silver: vals[1],
-            Gold: vals[2],
-            Platinum: vals[3],
-            Diamond: vals[4],
-            Virtual: vals[5],
+            "$500": vals[0],
+            "$1,000": vals[1],
+            Bronze: vals[2],
+            Silver: vals[3],
+            Gold: vals[4],
+            Platinum: vals[5],
+            Diamond: vals[6],
         },
     };
 }
@@ -86,39 +94,40 @@ const sections: Section[] = [
     {
         title: "General",
         features: [
-            f("Send Representatives", "Show up in person at VTHacks!", ["✓", "✓", "✓", "✓", "✓", "—"]),
-            f("Hacker Contact Info", "Receive contact information of hackers.", ["✓", "✓", "✓", "✓", "✓", "✓"]),
-            f("Sponsor Table", "A table to showcase recruiting materials.", ["S", "S", "L", "L", "L", "—"]),
-            f("Sponsor Snack Lounge", "Access to exclusive sponsor-only snack lounge.", ["✓", "✓", "✓", "✓", "✓", "—"]),
-            f("Resume Book", "Access to database of registrants' resumes.", ["—", "✓", "✓", "✓", "✓", "✓"]),
-            f("Opening Talk", "Speaking time during opening ceremony.", ["—", "1 min", "2 min", "3 min", "5 min", "—"]),
-            f("Tech Talk", "Host a tech talk about your innovations.", ["—", "—", "60 min", "90 min", "120 min", "—"]),
-            f("Email our Newsletter", "Feature in the VTHacks newsletter.", ["—", "—", "✓", "✓", "✓", "—"]),
-            f("Prize after tech talk", "Raffle a prize to an engaged attendee.", ["—", "—", "—", "✓", "✓", "—"]),
-            f("Closing talk", "Deliver the closing talk at VTHacks.", ["—", "—", "—", "✓", "✓", "—"]),
-            f("Premium Table Location", "Prime spot for visibility.", ["—", "—", "—", "—", "✓", "—"]),
+            f("Send Representatives", "Show up in person at VTHacks!", ["—", "—", "✓", "✓", "✓", "✓", "✓"]),
+            f("Hacker Contact Info", "Receive contact information of hackers.", ["✓", "✓", "✓", "✓", "✓", "✓", "✓"]),
+            f("Sponsor Table", "A table to showcase recruiting materials.", ["—", "—", "S", "S", "L", "L", "L"]),
+            f("Sponsor Snack Lounge", "Access to exclusive sponsor-only snack lounge.", ["—", "—", "✓", "✓", "✓", "✓", "✓"]),
+            f("Resume Book", "Access to database of registrants' resumes.", ["—", "✓", "✓", "✓", "✓", "✓", "✓"]),
+            f("Opening Talk", "Speaking time during opening ceremony.", ["—", "—", "—", "1 min", "2 min", "3 min", "5 min"]),
+            f("Tech Talk", "Host a tech talk about your innovations.", ["—", "—", "—", "—", "60 min", "90 min", "120 min"]),
+            f("Email our Newsletter", "Feature in the VTHacks newsletter.", ["—", "—", "—", "—", "✓", "✓", "✓"]),
+            f("Prize after tech talk", "Raffle a prize to an engaged attendee.", ["—", "—", "—", "—", "—", "✓", "✓"]),
+            f("Closing talk", "Deliver the closing talk at VTHacks.", ["—", "—", "—", "—", "—", "✓", "✓"]),
+            f("Premium Table Location", "Prime spot for visibility.", ["—", "—", "—", "—", "—", "—", "✓"]),
         ],
     },
     {
         title: "Branding",
         features: [
-            f("Branding Presence", "Branding for prominent exposure.", ["S", "M", "L", "XL", "XXL", "—"]),
-            f("Distribute Swag", "Distribute branded swag to attendees.", ["✓", "✓", "✓", "✓", "✓", "—"]),
-            f("Social Media Posts", "Posts on VTHacks' Instagram.", ["1", "2", "3", "4", "5", "1"]),
-            f("Social Media Takeover", "Control VTHacks' social for a day.", ["—", "—", "—", "✓", "✓", "—"]),
-            f("Banners throughout event", "Banners placed throughout venue.", ["—", "—", "—", "✓", "✓", "—"]),
-            f("VTHacks Cohosted with You", "Featured as co-host.", ["—", "—", "—", "—", "✓", "—"]),
-            f("Branded Ceiling Banner", "Ceiling banner for visibility.", ["—", "—", "—", "—", "✓", "—"]),
-            f("Gobblerfest", "Exposure at Gobblerfest.", ["—", "—", "—", "—", "✓", "—"]),
+            f("Logo on Website & Merch", "Logo included on website and event merch.", ["✓", "✓", "✓", "✓", "✓", "✓", "✓"]),
+            f("Branding Presence", "Branding for prominent exposure.", ["S", "S", "S", "M", "L", "XL", "XXL"]),
+            f("Distribute Swag", "Distribute branded swag to attendees.", ["—", "✓", "✓", "✓", "✓", "✓", "✓"]),
+            f("Social Media Posts", "Posts on VTHacks' Instagram.", ["—", "1", "1", "2", "3", "4", "5"]),
+            f("Social Media Takeover", "Control VTHacks' social for a day.", ["—", "—", "—", "—", "—", "✓", "✓"]),
+            f("Banners throughout event", "Banners placed throughout venue.", ["—", "—", "—", "—", "—", "✓", "✓"]),
+            f("VTHacks Cohosted with You", "Featured as co-host.", ["—", "—", "—", "—", "—", "—", "✓"]),
+            f("Branded Ceiling Banner", "Ceiling banner for visibility.", ["—", "—", "—", "—", "—", "—", "✓"]),
+            f("Gobblerfest", "Exposure at Gobblerfest.", ["—", "—", "—", "—", "—", "—", "✓"]),
         ],
     },
     {
         title: "Hacker Access",
         features: [
-            f("Discord Channel", "Dedicated Discord channel.", ["✓", "✓", "✓", "✓", "✓", "✓"]),
-            f("Award Branded Prize", "Present a branded prize.", ["—", "✓", "✓", "✓", "✓", "—"]),
-            f("Branded UX Event", "Host a branded UX event.", ["—", "—", "✓", "✓", "✓", "—"]),
-            f("Interviews on Site/Private VC", "Conduct on-site interviews.", ["—", "—", "—", "—", "✓", "—"]),
+            f("Discord Channel", "Dedicated Discord channel.", ["—", "✓", "✓", "✓", "✓", "✓", "✓"]),
+            f("Award Branded Prize", "Present a branded prize.", ["—", "—", "—", "✓", "✓", "✓", "✓"]),
+            f("Branded UX Event", "Host a branded UX event.", ["—", "—", "—", "—", "✓", "✓", "✓"]),
+            f("Interviews on Site/Private VC", "Conduct on-site interviews.", ["—", "—", "—", "—", "—", "—", "✓"]),
         ],
     },
 ];
@@ -158,7 +167,7 @@ function DesktopTable() {
                     </tr>
                     {/* Subtle separator line */}
                     <tr>
-                        <td colSpan={7} className="h-px bg-zinc-500/20 p-0" />
+                        <td colSpan={8} className="h-px bg-zinc-500/20 p-0" />
                     </tr>
                 </thead>
 
@@ -167,7 +176,7 @@ function DesktopTable() {
                         <Fragment key={section.title}>
                             {/* Section header */}
                             <tr>
-                                <td colSpan={7} className="pt-10 pb-4 px-4">
+                                <td colSpan={8} className="pt-10 pb-4 px-4">
                                     <h3 className="text-lg font-semibold text-white">{section.title}</h3>
                                 </td>
                             </tr>
