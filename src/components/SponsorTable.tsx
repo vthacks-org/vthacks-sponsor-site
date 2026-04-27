@@ -16,10 +16,10 @@ const prices: Record<Tier, string> = {
 
 const tierStyles: Record<Tier, { header: string; headerText: string; cell: string; badge: string }> = {
     Starter: {
-        header: "bg-gradient-to-b from-amber-700/15 to-transparent",
-        headerText: "text-amber-300",
-        cell: "bg-amber-700/[0.03]",
-        badge: "bg-amber-800/25 text-amber-300 border-amber-700/30",
+        header: "bg-gradient-to-b from-slate-600/15 to-transparent",
+        headerText: "text-slate-400",
+        cell: "bg-slate-600/[0.03]",
+        badge: "bg-slate-800/25 text-slate-400 border-slate-600/30",
     },
     Partner: {
         header: "bg-gradient-to-b from-emerald-600/15 to-transparent",
