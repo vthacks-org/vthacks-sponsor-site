@@ -25,7 +25,7 @@ export const imageLogos = [
   { src: bloombergLogo, alt: "Bloomberg", href: "https://www.bloomberg.com/" },
   { src: capitaloneLogo, alt: "Capital One", href: "https://www.capitalone.com/" },
   { src: carmaxLogo, alt: "CarMax", href: "https://www.carmax.com/" },
-  { src: costarLogo, alt: "Costar", href: "https://www.costar.com/" },
+  { src: costarLogo, alt: "CoStar Group", href: "https://www.costargroup.com/" },
   { src: databricksLogo, alt: "Databricks", href: "https://www.databricks.com/" },
   { src: deloitteLogo, alt: "Deloitte", href: "https://www.deloitte.com/" },
   { src: geicoLogo, alt: "Geico", href: "https://www.geico.com/" },
